@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <h1 class="text-center fw-bold">Trello Board</h1>
+  <hr />
+  <div class="text-end">
+    <button type="button" class="btn btn-success" (click)="addWork = !addWork">Add List</button>
+  </div>
+  <div class="d-flex justify-center flex-wrap board " cdkDropListGroup>
+    <div class="board-layout" *ngFor="let trello of mainService.trelloData; let i = index">
+      <app-board-view [boardIndex]="i"></app-board-view>
+    </div>
+  </div>
+
+  <!-- Add New WorkSpace -->
+  <div class="modal d-block workspace-create" id="workspace" *ngIf="addWork">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title m-0 fw-bold" id="workspaceLabel">Let's build a Workspace</h3>
+          <button type="button" class="btn-close" (click)="addWork = !addWork"></button>
+        </div>
+        <div class="modal-body example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Workspace's Name</mat-label>
+            <input matInput placeholder="Enter Workspace's Name" [(ngModel)]="workspaceName">
+          </mat-form-field>
+          <p class="text-danger error" *ngIf="submitted && workspaceName=='' ">Please enter workspace name.</p>
+          <p class="text-danger error" *ngIf="submitted && workspaceName !=='' ">Workspace already exist.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" [ngClass]="{'disbaled': workspaceName == ''}"
+            (click)="onSubmit()">Create New Workspace</button>
+        </div>
+      </div>
+    </div>
+  </div>

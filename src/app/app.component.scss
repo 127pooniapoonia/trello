@@ -1,0 +1,24 @@
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css');
+
+::ng-deep{
+    input {
+        height:25px;
+        font-size:12px;
+    }
+    button.btn {
+        padding: 7px 10px;
+        text-transform: capitalize;
+        margin:5px;
+        font-size: 12px;
+        line-height:1;
+    }
+    ::placeholder {
+        color: gray;
+      }
+    .mat-form-field{
+          display:block
+     }
+     .badge {
+         cursor:pointer;
+     }
+}

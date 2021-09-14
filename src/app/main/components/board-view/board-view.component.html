@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-header fw-bold">
+        <div class="d-flex justify-content-between align-items-center">
+            <p class="m-0">{{mainService.trelloData[boardIndex].title | titlecase}}
+            </p>
+            <span class="badge bg-dark rounded-pill" (click)="deleteWorkSpace()">X</span>
+        </div>
+    </div>
+    <div class="body-content">
+<app-task-view [boardIndex]= "boardIndex"></app-task-view>
+<div class="card-footer">
+    <ng-container *ngIf="addTask; then form else add"></ng-container>
+    <ng-template #form>
+        <div class="form-data">
+            <mat-form-field class="example-full-width">
+                <mat-label>Title</mat-label>
+                <input matInput placeholder="Enter title" [(ngModel)]="card.title">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-label>Description</mat-label>
+                <textarea matInput placeholder="Enter description" [(ngModel)]="card.description"></textarea>
+              </mat-form-field>
+           <div class="add-task">
+            <button  class="btn btn-success" (click)="appendBoard()">Add Task</button>
+            <button  class="btn btn-dark" (click)="addTask = !addTask">Cancel</button>
+           </div>
+    
+        </div>
+    </ng-template>
+    <ng-template #add>
+        <div>
+            <div class="addCard fw-bold" (click)="addTaskHandler()">
+                +
+            </div>
+        </div>
+    </ng-template>
+</div>
+</div>
+</div>
+
+

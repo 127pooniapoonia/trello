@@ -1,0 +1,12 @@
+<div class="list-group" cdkDropList
+    [cdkDropListData]="mainService.trelloData[boardIndex].cards"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+        <div cdkDrag class="list-group-item d-flex justify-content-between align-items-start" *ngFor="let card of mainService.trelloData[boardIndex].cards; let i = index">
+          <div class="ms-2 me-auto" style="width:80%">
+            <div class="fw-bold">{{card.title | titlecase}}</div>
+            <span class='text-secondary'>{{card.description}}</span>
+          </div>
+          <span class="badge bg-dark rounded-pill" (click)="deleteTask(i)">X</span>
+        </div>
+</div>

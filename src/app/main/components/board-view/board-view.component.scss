@@ -1,0 +1,40 @@
+.card{
+    min-width:250px;
+    max-width: 400px;
+    .body-content{
+        padding:12px;
+    }
+}
+.addCard{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 2px solid green;
+    font-size: 30px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: green;
+    cursor:pointer;
+}
+.form-data{
+    .add-task{
+        align-items: center;
+        display:flex;
+        p{
+            margin-left:10px;
+            margin-bottom:0;
+            cursor:pointer;
+            font-size:24px;
+            color:gray;
+        }
+    }
+}
+
+.card-footer{
+    margin-top:10px;
+}
+.mat-form-field{
+ display: block;
+}
